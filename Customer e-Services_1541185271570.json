@@ -1,0 +1,440 @@
+{
+  "definitions": {
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fields": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Outstanding": {
+      "example": {
+        "accountstatus": "accountstatus",
+        "category": "category",
+        "consumernumber": "consumernumber",
+        "cooling": "cooling",
+        "dm": "dm",
+        "electricity": "electricity",
+        "sewerage": "sewerage",
+        "txsequencenumber": "txsequencenumber",
+        "typeoftransaction": "typeoftransaction",
+        "water": "water"
+      },
+      "properties": {
+        "accountstatus": {
+          "description": "Category for all normal accounts will be N and accounts registered as collective child will be C. Ten digit Contract Account number",
+          "type": "string"
+        },
+        "category": {
+          "description": "Category of the customer like E for Non-National, N for national.",
+          "type": "string"
+        },
+        "consumernumber": {
+          "description": "Ten digit consumer account number of the customer",
+          "type": "string"
+        },
+        "cooling": {
+          "description": "Outstanding Cooling Charges",
+          "type": "string"
+        },
+        "dm": {
+          "description": "Outstanding Dubai Municipality Charges",
+          "type": "string"
+        },
+        "electricity": {
+          "description": "Outstanding Electricity Charges",
+          "type": "string"
+        },
+        "sewerage": {
+          "description": "Outstanding Sewerage Charges",
+          "type": "string"
+        },
+        "txsequencenumber": {
+          "description": "Transaction Sequence number provided by Agency is returned if provided in request method.",
+          "type": "string"
+        },
+        "typeoftransaction": {
+          "description": "Type of transaction",
+          "type": "string"
+        },
+        "water": {
+          "description": "Outstanding Water Charges",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PowerInterruption": {
+      "example": {
+        "businesspartner": "businesspartner",
+        "cityname": "cityname",
+        "contractaccount": "contractaccount",
+        "duration": "duration",
+        "enddate": "enddate",
+        "endtime": "endtime",
+        "interruption": "interruption",
+        "startdate": "startdate",
+        "starttime": "starttime",
+        "street": "street"
+      },
+      "properties": {
+        "businesspartner": {
+          "description": "Business Partner Number",
+          "type": "string"
+        },
+        "cityname": {
+          "description": "Name of City",
+          "type": "string"
+        },
+        "contractaccount": {
+          "description": "Ten digit Contract Account number",
+          "type": "string"
+        },
+        "duration": {
+          "description": "duration of Interruption",
+          "type": "string"
+        },
+        "enddate": {
+          "description": "EndDate",
+          "type": "string"
+        },
+        "endtime": {
+          "description": "Endtime",
+          "type": "string"
+        },
+        "interruption": {
+          "description": "Interruption",
+          "type": "string"
+        },
+        "startdate": {
+          "description": "StartDate",
+          "type": "string"
+        },
+        "starttime": {
+          "description": "StartTime",
+          "type": "string"
+        },
+        "street": {
+          "description": "Name of Street affected",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RateCategory": {
+      "example": {
+        "RateElectricity": {
+          "category": "category",
+          "contractaccount": "contractaccount",
+          "endpoint": "endpoint",
+          "rate": "rate",
+          "startpoint": "startpoint"
+        },
+        "RateWater": {
+          "category": "category",
+          "contractaccount": "contractaccount",
+          "endpoint": "endpoint",
+          "rate": "rate",
+          "startpoint": "startpoint"
+        }
+      },
+      "properties": {
+        "RateElectricity": {
+          "$ref": "#/definitions/RateElectricity"
+        },
+        "RateWater": {
+          "$ref": "#/definitions/RateWater"
+        }
+      },
+      "type": "object"
+    },
+    "RateElectricity": {
+      "example": {
+        "category": "category",
+        "contractaccount": "contractaccount",
+        "endpoint": "endpoint",
+        "rate": "rate",
+        "startpoint": "startpoint"
+      },
+      "properties": {
+        "category": {
+          "description": "Category of the premise",
+          "type": "string"
+        },
+        "contractaccount": {
+          "description": "Contract Account Number of the Customer",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Ending point",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Rate of Electricity.",
+          "type": "string"
+        },
+        "startpoint": {
+          "description": "Starting point",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RateWater": {
+      "example": {
+        "category": "category",
+        "contractaccount": "contractaccount",
+        "endpoint": "endpoint",
+        "rate": "rate",
+        "startpoint": "startpoint"
+      },
+      "properties": {
+        "category": {
+          "description": "Category of the premise",
+          "type": "string"
+        },
+        "contractaccount": {
+          "description": "Contract Account Number of the Customer",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Ending point",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Rate of Electricity",
+          "type": "string"
+        },
+        "startpoint": {
+          "description": "Starting point",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoadWorksNotification": {
+      "example": {
+        "cityname": "cityname",
+        "disruption": "disruption",
+        "enddate": "enddate",
+        "endtime": "endtime",
+        "startdate": "startdate",
+        "starttime": "starttime",
+        "street": "street",
+        "xcordinate": "xcordinate",
+        "ycordinate": "ycordinate"
+      },
+      "properties": {
+        "cityname": {
+          "description": "Name of City",
+          "type": "string"
+        },
+        "disruption": {
+          "description": "RoadWorks Disruption",
+          "type": "string"
+        },
+        "enddate": {
+          "description": "EndDate",
+          "type": "string"
+        },
+        "endtime": {
+          "description": "Endtime",
+          "type": "string"
+        },
+        "startdate": {
+          "description": "StartDate",
+          "type": "string"
+        },
+        "starttime": {
+          "description": "StartTime",
+          "type": "string"
+        },
+        "street": {
+          "description": "Name of Street affected",
+          "type": "string"
+        },
+        "xcordinate": {
+          "description": "xcordinate of the location of roadworks being performed",
+          "type": "string"
+        },
+        "ycordinate": {
+          "description": "ycordinate of the location of roadworks being performed",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.qa.dewa.gov.ae",
+  "info": {
+    "description": "Customer e-Services",
+    "title": "Customer e-Services",
+    "version": "5.0",
+    "x-lastModified": "Nov 02, 2018 11:32AM PST"
+  },
+  "paths": {
+    "/enquiry/consumption/rate/{contractaccount}": {
+      "get": {
+        "description": "Provides slab tarrif for a contract account\n",
+        "parameters": [
+          {
+            "description": "Contract Account Number of the Customer",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 10,
+            "name": "contractaccount",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object containing Rate Category",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RateCategory"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "DEWA Utility Number Slab Tarrif",
+        "tags": [
+          "RateCategory"
+        ],
+        "operationId": "getEnquiryConsumptionRate_contractaccount"
+      }
+    },
+    "/enquiry/{contractaccount}": {
+      "get": {
+        "description": "The Bill Enquiry endpoint returns information about the Bill Enquiry\noffered for a contract account or a Bill Enquiry Reference Number at a  given period of time. The response includes the Electricity, Water, Sewerage, Housing , Cooling, and Other Charges along with Total Amount in proper display order.\n",
+        "parameters": [
+          {
+            "description": "Utility Reference Number of the Customer",
+            "in": "path",
+            "maxLength": 10,
+            "minLength": 10,
+            "name": "contractaccount",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object containing outstanding Values",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Outstanding"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "DEWA Utility Number Bill Enquiry",
+        "tags": [
+          "Outstanding"
+        ],
+        "operationId": "getEnquiry_contractaccount"
+      }
+    },
+    "/status/powerinterruption": {
+      "get": {
+        "description": "Provides power interrruption status for the userid\n",
+        "parameters": [
+          {
+            "description": "Userid of the customer",
+            "in": "header",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object containing Power Interruption Available for the user",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/PowerInterruption"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Interttuption Status for User",
+        "tags": [
+          "PowerInterruption"
+        ],
+        "operationId": "getStatusPowerinterruption"
+      }
+    },
+    "/status/roadworks": {
+      "get": {
+        "description": "Provides Roadwords status for the userid\n",
+        "parameters": [
+          {
+            "description": "Userid of the customer",
+            "in": "header",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object containing Road works Available for the",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RoadWorksNotification"
+              },
+              "type": "array"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Any Roadworks Status for User",
+        "tags": [
+          "RoadWorksNotification"
+        ],
+        "operationId": "getStatusRoadworks"
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}
