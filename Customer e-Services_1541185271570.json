@@ -292,7 +292,7 @@
             "minLength": 10,
             "name": "contractaccount",
             "required": true,
-            "type": "number"
+            "type": "string"
           }
         ],
         "responses": {
@@ -330,7 +330,7 @@
             "minLength": 10,
             "name": "contractaccount",
             "required": true,
-            "type": "number"
+            "type": "string"
           }
         ],
         "responses": {
