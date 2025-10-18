@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-DeleteAuthCode" mapIdentifier="oauth2-codes">
+    <DisplayName>Delete Authorization Code</DisplayName>
+    <Scope>environment</Scope>
+    <Delete>
+        <Key>
+            <Parameter ref="authorization_code"/>
+        </Key>
+    </Delete>
+</KeyValueMapOperations>

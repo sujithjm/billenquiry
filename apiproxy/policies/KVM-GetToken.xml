@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-GetToken" mapIdentifier="oauth2-tokens">
+    <DisplayName>Get Access Token</DisplayName>
+    <Scope>environment</Scope>
+    <Get assignTo="token_data">
+        <Key>
+            <Parameter ref="request.header.Authorization"/>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

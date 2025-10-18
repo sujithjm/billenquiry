@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault name="RF-InvalidRequest">
+    <DisplayName>Raise Invalid Request Fault</DisplayName>
+    <FaultResponse>
+        <Set>
+            <StatusCode>400</StatusCode>
+            <Payload contentType="application/json">{
+    "error": "invalid_request",
+    "error_description": "{error_description}"
+}</Payload>
+        </Set>
+    </FaultResponse>
+</RaiseFault>

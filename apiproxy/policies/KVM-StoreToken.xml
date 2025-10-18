@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-StoreToken" mapIdentifier="oauth2-tokens">
+    <DisplayName>Store Access Token</DisplayName>
+    <Scope>environment</Scope>
+    <ExpiryTimeInSecs>3600</ExpiryTimeInSecs>
+    <Put>
+        <Key>
+            <Parameter ref="token_lookup_key"/>
+        </Key>
+        <Value ref="token_data"/>
+    </Put>
+</KeyValueMapOperations>

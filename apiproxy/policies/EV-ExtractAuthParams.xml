@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables name="EV-ExtractAuthParams">
+    <DisplayName>Extract Authorization Parameters</DisplayName>
+    <Source>request</Source>
+    <QueryParam name="client_id">
+        <Pattern ignoreCase="true">{client_id}</Pattern>
+    </QueryParam>
+    <QueryParam name="redirect_uri">
+        <Pattern ignoreCase="true">{redirect_uri}</Pattern>
+    </QueryParam>
+    <QueryParam name="response_type">
+        <Pattern ignoreCase="true">{response_type}</Pattern>
+    </QueryParam>
+    <QueryParam name="code_challenge">
+        <Pattern ignoreCase="true">{code_challenge}</Pattern>
+    </QueryParam>
+    <QueryParam name="code_challenge_method">
+        <Pattern ignoreCase="true">{code_challenge_method}</Pattern>
+    </QueryParam>
+    <QueryParam name="state">
+        <Pattern ignoreCase="true">{state}</Pattern>
+    </QueryParam>
+    <QueryParam name="scope">
+        <Pattern ignoreCase="true">{scope}</Pattern>
+    </QueryParam>
+</ExtractVariables>
