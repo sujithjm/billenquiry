@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-GetAuthCode" mapIdentifier="oauth2-codes">
+    <DisplayName>Get Authorization Code</DisplayName>
+    <Scope>environment</Scope>
+    <Get assignTo="auth_code_data">
+        <Key>
+            <Parameter ref="authorization_code"/>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

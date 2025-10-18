@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="oauth2-pkce-proxy">
+    <DisplayName>OAuth2 PKCE Reusable Proxy</DisplayName>
+    <Description>Reusable OAuth2 Authorization Code + PKCE flow for OPDK</Description>
+    <Policies>
+        <Policy>AM-SetCORSHeaders</Policy>
+        <Policy>RF-InvalidRequest</Policy>
+        <Policy>RF-InvalidClient</Policy>
+        <Policy>RF-UnauthorizedClient</Policy>
+        <Policy>RF-InvalidGrant</Policy>
+        <Policy>JS-GenerateAuthCode</Policy>
+        <Policy>JS-ValidatePKCE</Policy>
+        <Policy>JS-GenerateTokens</Policy>
+        <Policy>JS-ValidateCodeChallenge</Policy>
+        <Policy>KVM-StoreAuthCode</Policy>
+        <Policy>KVM-GetAuthCode</Policy>
+        <Policy>KVM-DeleteAuthCode</Policy>
+        <Policy>KVM-StoreToken</Policy>
+        <Policy>KVM-GetToken</Policy>
+        <Policy>EV-ExtractAuthParams</Policy>
+        <Policy>EV-ExtractTokenParams</Policy>
+        <Policy>AM-SetAuthResponse</Policy>
+        <Policy>AM-SetTokenResponse</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://generateAuthCode.js</Resource>
+        <Resource>jsc://validatePKCE.js</Resource>
+        <Resource>jsc://generateTokens.js</Resource>
+        <Resource>jsc://validateCodeChallenge.js</Resource>
+    </Resources>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description>OAuth2 PKCE Proxy Endpoint</Description>
+    <FaultRules>
+        <FaultRule name="HandleInvalidRequest">
+            <Condition>(pkce.error.type = "InvalidRequest")</Condition>
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+            <Step>
+                <Name>RF-InvalidRequest</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="HandleInvalidClient">
+            <Condition>(pkce.error.type = "InvalidClient")</Condition>
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+            <Step>
+                <Name>RF-InvalidClient</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="HandleUnauthorizedClient">
+            <Condition>(pkce.error.type = "UnauthorizedClient")</Condition>
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+            <Step>
+                <Name>RF-UnauthorizedClient</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="HandleInvalidGrant">
+            <Condition>(pkce.error.type = "InvalidGrant")</Condition>
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+            <Step>
+                <Name>RF-InvalidGrant</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="CORS-Fault">
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>AM-SetCORSHeaders</Name>
+            </Step>
+        </Request>
+    </PreFlow>
+    <Flows>
+        <Flow name="Authorize">
+            <Description>Authorization Code Request with PKCE</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractAuthParams</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ValidatePKCE</Name>
+                </Step>
+                <Step>
+                    <Name>JS-GenerateAuthCode</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-StoreAuthCode</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetAuthResponse</Name>
+                </Step>
+            </Request>
+            <Condition>(proxy.pathsuffix MatchesPath "/authorize") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Token">
+            <Description>Token Exchange with PKCE Validation</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractTokenParams</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetAuthCode</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ValidateCodeChallenge</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-DeleteAuthCode</Name>
+                </Step>
+                <Step>
+                    <Name>JS-GenerateTokens</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-StoreToken</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetTokenResponse</Name>
+                </Step>
+            </Request>
+            <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="ValidateToken">
+            <Description>Validate Access Token</Description>
+            <Request>
+                <Step>
+                    <Name>KVM-GetToken</Name>
+                </Step>
+            </Request>
+            <Condition>(proxy.pathsuffix MatchesPath "/validate") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/oauth2</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

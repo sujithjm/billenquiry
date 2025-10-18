@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-SetAuthResponse">
+    <DisplayName>Set Authorization Response</DisplayName>
+    <AssignTo createNew="false" transport="http" type="response"/>
+    <Set>
+        <StatusCode>302</StatusCode>
+        <Headers>
+            <Header name="Location">{redirect_uri}?code={authorization_code}&amp;state={state}</Header>
+        </Headers>
+    </Set>
+</AssignMessage>

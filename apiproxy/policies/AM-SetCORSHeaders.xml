@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-SetCORSHeaders">
+    <DisplayName>Set CORS Headers</DisplayName>
+    <AssignTo createNew="false" transport="http" type="response"/>
+    <Set>
+        <Headers>
+            <Header name="Access-Control-Allow-Origin">*</Header>
+            <Header name="Access-Control-Allow-Methods">GET, POST, OPTIONS</Header>
+            <Header name="Access-Control-Allow-Headers">Content-Type, Authorization</Header>
+            <Header name="Access-Control-Max-Age">3600</Header>
+        </Headers>
+    </Set>
+</AssignMessage>

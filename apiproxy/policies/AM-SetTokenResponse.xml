@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-SetTokenResponse">
+    <DisplayName>Set Token Response</DisplayName>
+    <AssignTo createNew="false" transport="http" type="response"/>
+    <Set>
+        <StatusCode>200</StatusCode>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">{
+    "access_token": "{access_token}",
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "refresh_token": "{refresh_token}",
+    "scope": "{scope}"
+}</Payload>
+    </Set>
+</AssignMessage>

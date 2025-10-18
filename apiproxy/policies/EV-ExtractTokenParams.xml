@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables name="EV-ExtractTokenParams">
+    <DisplayName>Extract Token Parameters</DisplayName>
+    <Source>request</Source>
+    <FormParam name="grant_type">
+        <Pattern ignoreCase="true">{grant_type}</Pattern>
+    </FormParam>
+    <FormParam name="code">
+        <Pattern ignoreCase="true">{authorization_code}</Pattern>
+    </FormParam>
+    <FormParam name="redirect_uri">
+        <Pattern ignoreCase="true">{redirect_uri}</Pattern>
+    </FormParam>
+    <FormParam name="client_id">
+        <Pattern ignoreCase="true">{client_id}</Pattern>
+    </FormParam>
+    <FormParam name="code_verifier">
+        <Pattern ignoreCase="true">{code_verifier}</Pattern>
+    </FormParam>
+</ExtractVariables>
